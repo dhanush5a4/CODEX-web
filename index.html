@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Writer Blog</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <h1>Tech Writer Blog</h1>
+        <p>Publish your own technical ideas, tutorials, and notes.</p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel">
+        <h2>Create a Blog Post</h2>
+        <form id="postForm">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" placeholder="How I built a REST API" required />
+
+          <label for="author">Author</label>
+          <input id="author" name="author" type="text" placeholder="Your name" required />
+
+          <label for="tags">Tags (comma separated)</label>
+          <input id="tags" name="tags" type="text" placeholder="javascript, backend, api" />
+
+          <label for="content">Post content</label>
+          <textarea
+            id="content"
+            name="content"
+            rows="12"
+            placeholder="Write your technical blog post here..."
+            required
+          ></textarea>
+
+          <button type="submit">Publish post</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="posts-header">
+          <h2>Your Published Posts</h2>
+          <button id="clearPostsBtn" class="secondary">Clear all</button>
+        </div>
+        <p class="helper-text">Posts are saved in your browser with local storage.</p>
+        <div id="postsContainer" class="posts-list" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <template id="postTemplate">
+      <article class="post-card">
+        <h3 class="post-title"></h3>
+        <p class="post-meta"></p>
+        <p class="post-tags"></p>
+        <p class="post-content"></p>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
